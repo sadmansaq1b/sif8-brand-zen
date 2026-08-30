@@ -1,6 +1,6 @@
 # The Foundation Process — Alternating Timeline Accordions
 
-A new dedicated Process section, placed after "Why Choose Us" and before The Bridge. The existing "Why Choose Us" section gives up the `#process` anchor (it becomes `#why-us`) so the navbar "Process" link lands on the real timeline.
+A new dedicated Process section, placed after The Bridge. The existing "Why Choose Us" section keeps its `#process` anchor; the navbar "Process" link already points to a real section, but this new timeline becomes the canonical, expanded Foundation Process experience at `#foundation`.
 
 ## Layout
 
@@ -49,6 +49,6 @@ Compositions dim and desaturate when their stage is collapsed, and brighten when
 ## Technical notes
 
 - New files: `src/components/landing/Process.tsx` (section + timeline), `src/components/landing/ProcessStage.tsx` (one row: node, accordion, visual), `src/components/landing/ProcessVisual.tsx` (the four abstract compositions), and `src/lib/process-data.ts` holding the stage copy so text edits stay in one place.
-- Rendered from `src/routes/index.tsx` between `<WhyUs />` and `<Bridge />`.
-- `WhyUs` section id changes from `process` to `why-us`; new section takes `id="process"`.
+- Rendered from `src/routes/index.tsx` after `<Bridge />`.
+- New section takes `id="foundation"` and uses `aria-labelledby` for the heading.
 - Reuses the existing `Reveal` component and `glass` utility; adds keyframes for float drift and node pulse to `src/styles.css` as tokens/utilities — no hardcoded color classes.
