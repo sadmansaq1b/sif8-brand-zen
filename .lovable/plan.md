@@ -1,6 +1,6 @@
 # The Foundation Process — Alternating Timeline Accordions
 
-A new dedicated Process section, placed after "Why Choose Us" and before The Bridge. The existing "Why Choose Us" section gives up the `#process` anchor (it becomes `#why-us`) so the navbar "Process" link lands on the real timeline.
+A new dedicated Process section, placed after The Bridge. The existing "Why Choose Us" section keeps its `#process` anchor; the navbar "Process" link already points to a real section, but this new timeline becomes the canonical, expanded Foundation Process experience at `#foundation`.
 
 ## Layout
 
