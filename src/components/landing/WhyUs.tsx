@@ -67,7 +67,7 @@ export function WhyUs() {
             </Reveal>
           ))}
 
-          <Reveal className="lg:col-start-2" delay={120}>
+          <Reveal className="lg:col-start-1 lg:row-start-2" delay={120}>
             <Card title={cards[3]!.title} desc={cards[3]!.desc} />
           </Reveal>
           <div className="flex items-center justify-center py-8 lg:col-start-2 lg:row-start-2 lg:py-0">
