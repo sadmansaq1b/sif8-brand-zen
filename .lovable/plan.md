@@ -28,16 +28,19 @@ Behavior: only one stage open at a time (stage 01 open by default), smooth heigh
 
 All four stages use the exact supplied copy for Intent, Deliverables, and Feedback Loop.
 
-## Visual side (floating abstract UI)
+## Visual side (glowing mock-UI panels, reference-matched)
 
-Each stage gets its own abstract composition of layered glass shards — small cards, hairline grids, orbiting dots, a gradient blur — each fragment drifting up and down on its own slow loop with staggered delays so nothing moves in lockstep. Per-stage motifs:
+Following the supplied reference: each stage's visual is a large rounded panel (near-black fill, hairline border, generous inner padding) with a strong blue-violet glow blooming from behind and pooling at the bottom edge — the glow is the light source, the panel is the stage. Inside sit small faux-UI fragments rendered as real DOM: rounded chips, tiny labels in uppercase micro-type, miniature bars, sliders, swatch rows, dotted grids. Fragments are tilted slightly, layered with soft drop shadows, and drift up and down on individual slow loops with staggered delays.
 
-1. Clarity: concentric rings converging on a point.
-2. Identity: stacked swatch/typography cards fanned out.
-3. Barakah system: a node graph of connected pills.
-4. Expansion: tiles radiating outward from a center.
+Per-stage compositions:
 
-Compositions dim and desaturate when their stage is collapsed, and brighten when it is active.
+1. Clarity: a short chat/diagnostic exchange — alternating question and answer bubbles with small avatar dots.
+2. Identity: fanned, tilted cards labelled COLOR PALETTE, TYPE SCALE, LOGO MARK, MOTION — swatch rows and letterform samples inside, brightest card centered.
+3. Barakah system: a stacked "voice guide" panel with connected pills and a document-line preview beside a small channel list.
+4. Expansion: a spread of module tiles (packaging, retail, web, campaign) radiating from a center card, with a cursor-and-badge detail like the reference's delivery frame.
+
+Panel glow tint shifts per stage across the brand ramp (violet → royal blue → sky cyan). Compositions dim and desaturate when their stage is collapsed, and brighten when it is active.
+
 
 ## Motion
 
