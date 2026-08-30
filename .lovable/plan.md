@@ -16,7 +16,7 @@ A single-page, dark-mode landing page for SiF8, built exactly to the supplied br
 2. **Hero** — eyebrow, Garamond headline, subheadline, primary CTA "Apply for Basirah Brand Audit →", trust signal "✦ Trusted by 20+ brands". Copy exactly as supplied.
 3. **The Reality (Problem)** — large spanning headline, 2-column editorial grid beneath, 1px vertical divider between columns, body `line-height: 1.8`, generous whitespace. Columns stack on mobile (divider becomes horizontal).
 4. **Who This Is For** — headline plus numbered list 01–05 with hairline row separators and monospaced-feel numerals; closing "Not For" block in a muted, bordered panel.
-5. **Why Choose Us** — 6-card CSS grid (3×2 desktop, 1 column mobile) around a central circular glowing "SiF8" orb with a breathing/pumping animation; curved glowing SVG connectors from the orb to each card, drawn in an absolutely positioned overlay SVG that is hidden below `lg` (cards stack there).
+5. **Why Choose Us** — 6-card CSS grid (3×2 desktop, 1 column mobile) around a central circular glowing orb component (isolated as `CenterOrb`, placeholder "SiF8" text/mark swappable in one spot, with the breathing/pumping animation already working) curved glowing SVG connectors from the orb to each card, drawn in an absolutely positioned overlay SVG that is hidden below `lg` (cards stack there).
 6. **The Bridge** — centered "Business and deen were never separate" with an animated neon EKG heartbeat SVG line connecting the two words, drawn using `stroke-dasharray`/`stroke-dashoffset` with a glow filter.
 
 Footer: minimal single line with the wordmark and the CTA repeated.
