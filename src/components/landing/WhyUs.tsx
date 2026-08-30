@@ -68,16 +68,16 @@ export function WhyUs() {
           ))}
 
           <Reveal className="lg:col-start-2" delay={120}>
-            <Card {...cards[3]} />
+            <Card title={cards[3]!.title} desc={cards[3]!.desc} />
           </Reveal>
           <div className="flex items-center justify-center py-8 lg:col-start-2 lg:row-start-2 lg:py-0">
             <CenterOrb />
           </div>
           <Reveal className="lg:col-start-2 lg:row-start-3" delay={160}>
-            <Card {...cards[4]} />
+            <Card title={cards[4]!.title} desc={cards[4]!.desc} />
           </Reveal>
           <Reveal className="lg:col-start-3 lg:row-start-2" delay={200}>
-            <Card {...cards[5]} />
+            <Card title={cards[5]!.title} desc={cards[5]!.desc} />
           </Reveal>
         </div>
       </div>
