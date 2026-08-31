@@ -187,6 +187,27 @@
     drop-shadow(0 0 18px oklch(0.74 0.115 220 / 45%));
 }
 
+/* Floating mock-UI fragments */
+@keyframes float-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.float-drift {
+  animation: float-drift 8s ease-in-out infinite;
+}
+
+/* Active timeline node glow */
+.node-glow {
+  box-shadow:
+    0 0 0 4px oklch(0.93 0.15 190 / 8%),
+    0 0 28px 4px oklch(0.74 0.115 220 / 35%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -195,7 +216,9 @@
   }
   .orb-breathe,
   .connector-line,
-  .heartbeat-line {
+  .heartbeat-line,
+  .float-drift {
     animation: none;
   }
 }
+
