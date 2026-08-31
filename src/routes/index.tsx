@@ -5,7 +5,9 @@ import { Problem } from "@/components/landing/Problem";
 import { WhoFor } from "@/components/landing/WhoFor";
 import { WhyUs } from "@/components/landing/WhyUs";
 import { Bridge } from "@/components/landing/Bridge";
+import { Process } from "@/components/landing/Process";
 import { Footer } from "@/components/landing/Footer";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
