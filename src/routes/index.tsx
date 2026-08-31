@@ -39,6 +39,8 @@ function Index() {
         <WhoFor />
         <WhyUs />
         <Bridge />
+        <Process />
+
       </main>
       <Footer />
     </div>
