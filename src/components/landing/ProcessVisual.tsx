@@ -80,8 +80,8 @@ export function ProcessVisual({ index, active }: { index: number; active: boolea
       {index === 1 && (
         <div className="relative flex h-[200px] items-center justify-center">
           {[
-            { t: "Color Palette", r: "-12deg", x: "-70px", d: "0s" },
-            { t: "Type Scale", r: "6deg", x: "70px", d: "1.4s" },
+            { t: "Color Palette", r: "-12deg", x: "-96px", d: "0s" },
+            { t: "Type Scale", r: "6deg", x: "96px", d: "1.4s" },
             { t: "Logo Mark", r: "-2deg", x: "0px", d: "0.7s" },
           ].map((c, i) => (
             <div
