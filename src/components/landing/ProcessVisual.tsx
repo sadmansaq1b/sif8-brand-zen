@@ -86,13 +86,10 @@ export function ProcessVisual({ index, active }: { index: number; active: boolea
           ].map((c, i) => (
             <div
               key={c.t}
-              className={`${chip} float-drift absolute w-40 space-y-2 p-3`}
-              style={{
-                transform: `translateX(${c.x}) rotate(${c.r})`,
-                animationDelay: c.d,
-                zIndex: i,
-              }}
+              className="absolute w-40"
+              style={{ transform: `translateX(${c.x}) rotate(${c.r})`, zIndex: i }}
             >
+             <div className={`${chip} float-drift space-y-2 p-3`} style={{ animationDelay: c.d }}>
               <p className={label}>{c.t}</p>
               {c.t === "Color Palette" ? (
                 <div className="flex gap-1.5">
@@ -111,6 +108,7 @@ export function ProcessVisual({ index, active }: { index: number; active: boolea
                   <div className="h-1.5 w-2/3 rounded-full bg-foreground/15" />
                 </div>
               )}
+             </div>
             </div>
           ))}
         </div>
@@ -146,13 +144,14 @@ export function ProcessVisual({ index, active }: { index: number; active: boolea
       {index === 3 && (
         <div className="grid grid-cols-2 gap-3">
           {["Packaging", "Retail", "Web", "Campaign"].map((m, i) => (
-            <div
-              key={m}
-              className={`${chip} float-drift space-y-2 p-3`}
-              style={{ animationDelay: `${i * 0.6}s`, transform: `rotate(${i % 2 ? 3 : -3}deg)` }}
-            >
-              <p className={label}>{m}</p>
-              <div className="h-8 rounded-md border border-border bg-gradient-to-br from-royal-blue/40 to-transparent" />
+            <div key={m} style={{ transform: `rotate(${i % 2 ? 3 : -3}deg)` }}>
+              <div
+                className={`${chip} float-drift space-y-2 p-3`}
+                style={{ animationDelay: `${i * 0.6}s` }}
+              >
+                <p className={label}>{m}</p>
+                <div className="h-8 rounded-md border border-border bg-gradient-to-br from-royal-blue/40 to-transparent" />
+              </div>
             </div>
           ))}
         </div>
