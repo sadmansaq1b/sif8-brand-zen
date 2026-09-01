@@ -82,7 +82,7 @@ export function ServicesCarousel() {
 
     const measure = () => {
       const w = wrapRef.current?.clientWidth ?? 1200;
-      radius.current = Math.max(360, Math.min(620, w * 0.52));
+      radius.current = Math.max(420, Math.min(760, w * 0.62));
     };
     measure();
     window.addEventListener("resize", measure);
@@ -103,10 +103,9 @@ export function ServicesCarousel() {
       tilt.current.y += (tiltTarget.current.y - tilt.current.y) * (1 - Math.exp(-6 * dt));
 
       if (stageRef.current) {
-        stageRef.current.style.transform = `rotateX(${tilt.current.x.toFixed(3)}deg) rotateY(${(
-          -progress.current * ANGLE +
-          tilt.current.y
-        ).toFixed(3)}deg)`;
+        stageRef.current.style.transform = `translateZ(${-radius.current}px) rotateX(${tilt.current.x.toFixed(
+          3,
+        )}deg) rotateY(${(-progress.current * ANGLE + tilt.current.y).toFixed(3)}deg)`;
       }
 
       const idx = ((Math.round(progress.current) % COUNT) + COUNT) % COUNT;
@@ -210,6 +209,7 @@ export function ServicesCarousel() {
                 style={{
                   transform: `rotateY(${i * ANGLE}deg) translateZ(${radius.current}px)`,
                   transformStyle: "preserve-3d",
+                  backfaceVisibility: "hidden",
                 }}
               >
                 <div
