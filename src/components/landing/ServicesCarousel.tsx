@@ -103,9 +103,11 @@ export function ServicesCarousel() {
       tilt.current.y += (tiltTarget.current.y - tilt.current.y) * (1 - Math.exp(-6 * dt));
 
       if (stageRef.current) {
-        stageRef.current.style.transform = `translateZ(${-radius.current}px) rotateX(${tilt.current.x.toFixed(
+        stageRef.current.style.transform = `rotateX(${tilt.current.x.toFixed(
           3,
         )}deg) rotateY(${(-progress.current * ANGLE + tilt.current.y).toFixed(3)}deg)`;
+        const outer = stageRef.current.parentElement;
+        if (outer) outer.style.transform = `translateZ(${-radius.current}px)`;
       }
 
       const idx = ((Math.round(progress.current) % COUNT) + COUNT) % COUNT;
@@ -197,15 +199,19 @@ export function ServicesCarousel() {
           style={{ perspective: "1350px" }}
         >
           <div
-            ref={stageRef}
             className="absolute left-1/2 top-1/2 h-0 w-0"
             style={{ transformStyle: "preserve-3d" }}
           >
+            <div
+              ref={stageRef}
+              className="absolute h-0 w-0"
+              style={{ transformStyle: "preserve-3d" }}
+            >
             {SERVICES.map((s, i) => (
               <article
                 key={s.num}
                 onClick={() => goTo(i)}
-                className="absolute -left-[150px] -top-[190px] w-[300px] sm:-left-[175px] sm:-top-[210px] sm:w-[350px]"
+                className="absolute -left-[140px] -top-[165px] w-[280px] sm:-left-[160px] sm:-top-[180px] sm:w-[320px]"
                 style={{
                   transform: `rotateY(${i * ANGLE}deg) translateZ(${radius.current}px)`,
                   transformStyle: "preserve-3d",
@@ -213,7 +219,7 @@ export function ServicesCarousel() {
                 }}
               >
                 <div
-                  className={`glass flex h-[380px] flex-col rounded-2xl p-7 transition-[opacity,box-shadow,border-color] duration-500 sm:h-[420px] ${
+                  className={`glass flex h-[330px] flex-col rounded-2xl p-6 transition-[opacity,box-shadow,border-color] duration-500 sm:h-[360px] ${
                     active === i
                       ? "border-sky-cyan/40 opacity-100 shadow-[0_0_60px_-10px_oklch(0.74_0.115_220/45%)]"
                       : "opacity-55"
@@ -249,6 +255,7 @@ export function ServicesCarousel() {
                 </div>
               </article>
             ))}
+            </div>
           </div>
         </div>
 
