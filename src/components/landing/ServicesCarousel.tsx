@@ -76,6 +76,7 @@ export function ServicesCarousel() {
   const radius = useRef(560);
 
   const [active, setActive] = useState(0);
+  const [r, setR] = useState(560);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -83,6 +84,7 @@ export function ServicesCarousel() {
     const measure = () => {
       const w = wrapRef.current?.clientWidth ?? 1200;
       radius.current = Math.max(420, Math.min(760, w * 0.62));
+      setR(radius.current);
     };
     measure();
     window.addEventListener("resize", measure);
@@ -213,7 +215,7 @@ export function ServicesCarousel() {
                 onClick={() => goTo(i)}
                 className="absolute -left-[140px] -top-[165px] w-[280px] sm:-left-[160px] sm:-top-[180px] sm:w-[320px]"
                 style={{
-                  transform: `rotateY(${i * ANGLE}deg) translateZ(${radius.current}px)`,
+                  transform: `rotateY(${i * ANGLE}deg) translateZ(${r}px)`,
                   transformStyle: "preserve-3d",
                   backfaceVisibility: "hidden",
                 }}
