@@ -10,7 +10,7 @@ const points = [
 
 export function WhoFor() {
   return (
-    <section id="services" className="relative mx-auto max-w-4xl px-6 py-28 sm:py-36">
+    <section id="who-for" className="relative mx-auto max-w-4xl px-6 py-28 sm:py-36">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-64 top-0 h-[420px] w-[480px] rounded-full opacity-40 blur-3xl"
