@@ -41,7 +41,7 @@ function Index() {
         <WhyUs />
         <Bridge />
         <Process />
-        <ServicesGrid />
+        <ServicesCarousel />
       </main>
       <Footer />
     </div>
