@@ -46,6 +46,8 @@ function Index() {
         <Bridge />
         <Process />
         <ServicesCarousel />
+        <Comparison />
+        <Founder />
         <Faq />
         <FinalCta />
       </main>
