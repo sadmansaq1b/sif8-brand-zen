@@ -7,6 +7,7 @@ const links = [
   { label: "Case Studies", href: "#case-studies" },
   { label: "Process", href: "#process" },
   { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export function Navbar() {
