@@ -1,53 +1,82 @@
 import { Reveal } from "./Reveal";
+import { Gem, Tag, AlertTriangle, Stamp } from "lucide-react";
 
-const points = [
-  "You're generating revenue but can't charge what your work is worth.",
-  "You keep having to explain yourself in discovery calls.",
-  "You got a logo with no strategic backbone behind it.",
-  "You're quietly anxious that your marketing tactics might be crossing a line.",
-  "You want to grow without compromising your deen.",
+const blocks = [
+  {
+    icon: Gem,
+    label: "Hidden gem",
+    text: "When someone lands on your page or meets you, they can't tell. The brand doesn't hold the weight of what's actually inside.",
+  },
+  {
+    icon: Tag,
+    label: "Price tag",
+    text: "You over-explain your prices. You lose deals to competitors who look more credible but deliver less.",
+  },
+  {
+    icon: AlertTriangle,
+    label: "Warning",
+    text: "You're quietly anxious that the way you're showing up—the urgency triggers, the attention tactics—might have crossed a line you can't uncross.",
+  },
+  {
+    icon: Stamp,
+    label: "Generic template",
+    text: "Most agencies make this worse with generic templates, trend-chasing aesthetics, and copy engineered to manipulate. That is what we fix.",
+  },
 ];
 
 export function WhoFor() {
   return (
-    <section id="who-for" className="relative mx-auto max-w-4xl px-6 py-28 sm:py-36">
+    <section id="reality" className="relative mx-auto max-w-6xl px-6 py-28 sm:py-36">
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-64 top-0 h-[420px] w-[480px] rounded-full opacity-40 blur-3xl"
+        className="pointer-events-none absolute -right-48 top-1/4 h-[400px] w-[480px] rounded-full opacity-30 blur-3xl"
         style={{
           background:
-            "radial-gradient(closest-side, oklch(0.55 0.16 315 / 20%), transparent)",
+            "radial-gradient(closest-side, oklch(0.36 0.17 276 / 22%), transparent)",
         }}
       />
 
       <Reveal>
-        <h2 className="font-display max-w-3xl text-4xl font-medium leading-[1.15] tracking-tight text-foreground sm:text-5xl">
-          Built for founders who refuse to trade their deen for their growth.
+        <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-violet-brand">
+          The Reality
+        </p>
+        <h2 className="font-display max-w-4xl text-4xl font-medium leading-[1.15] tracking-tight text-foreground sm:text-5xl">
+          You've built something real. Your market can't see it.
         </h2>
       </Reveal>
 
-      <div className="mt-14">
-        {points.map((p, i) => (
-          <Reveal key={i} delay={i * 90}>
-            <div className="flex items-baseline gap-6 border-b border-border py-6">
-              <span className="shrink-0 text-sm font-medium tracking-widest text-sky-cyan/80 tabular-nums">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="text-base leading-relaxed text-foreground/90 sm:text-lg">{p}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <Reveal delay={200}>
-        <div className="glass mt-12 rounded-2xl p-8 sm:p-10">
-          <p className="text-base leading-relaxed text-muted-foreground sm:text-lg" style={{ lineHeight: 1.8 }}>
-            Founders chasing shortcuts, fast logos, or trend-chasing aesthetics...
-            If that's not where you are, we'll tell you honestly — before you
-            spend a single taka.
-          </p>
+      <div className="relative mx-auto mt-16 max-w-5xl">
+        <div className="pointer-events-none absolute -inset-4 hidden md:block">
+          <div className="absolute left-1/2 top-0 h-4 w-px -translate-x-1/2 bg-white/5" />
+          <div className="absolute bottom-0 left-1/2 h-4 w-px -translate-x-1/2 bg-white/5" />
+          <div className="absolute left-0 top-1/2 h-px w-4 -translate-y-1/2 bg-white/5" />
+          <div className="absolute right-0 top-1/2 h-px w-4 -translate-y-1/2 bg-white/5" />
         </div>
-      </Reveal>
+
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.05] md:grid-cols-2">
+          {blocks.map((b, i) => (
+            <Reveal
+              key={i}
+              delay={120 + i * 120}
+              className="group relative border-b border-r border-white/[0.05] transition-colors duration-500 hover:border-sky-cyan/40"
+            >
+              <div className="relative flex flex-col items-center p-8 text-center sm:p-12">
+                <b.icon
+                  className="size-7 text-muted-foreground/60 transition-colors duration-500 group-hover:text-sky-cyan sm:size-8"
+                  strokeWidth={1.25}
+                  aria-label={b.label}
+                />
+                <p
+                  className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground transition-colors duration-500 group-hover:text-foreground sm:text-base"
+                  style={{ lineHeight: 1.8 }}
+                >
+                  {b.text}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
