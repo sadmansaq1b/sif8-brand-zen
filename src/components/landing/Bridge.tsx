@@ -2,7 +2,7 @@ import { Reveal } from "./Reveal";
 
 export function Bridge() {
   return (
-    <section id="case-studies" className="relative overflow-hidden px-6 py-32 sm:py-44">
+    <section id="bridge" className="relative overflow-hidden px-6 py-32 sm:py-44">
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/2 h-[380px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 blur-3xl"

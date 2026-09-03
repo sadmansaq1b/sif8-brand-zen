@@ -116,6 +116,15 @@
   border: 1px solid oklch(1 0 0 / 10%);
 }
 
+/* Hidden-scrollbar utility for draggable carousels */
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Scroll reveal (driven by Reveal component) */
 .reveal {
   opacity: 0;
