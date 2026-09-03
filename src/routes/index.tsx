@@ -48,6 +48,7 @@ function Index() {
         <Process />
         <ServicesCarousel />
         <Comparison />
+        <Testimonials />
         <Founder />
         <Faq />
         <FinalCta />
