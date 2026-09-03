@@ -8,8 +8,8 @@ export function Process() {
 
   return (
     <section
-      id="foundation"
-      aria-labelledby="foundation-heading"
+      id="process"
+      aria-labelledby="process-heading"
       className="relative overflow-hidden px-6 py-24 sm:py-32"
     >
       <div
@@ -25,7 +25,7 @@ export function Process() {
         <Reveal className="mb-16 text-center">
           <p className="text-[11px] uppercase tracking-[0.28em] text-sky-cyan">The Process</p>
           <h2
-            id="foundation-heading"
+            id="process-heading"
             className="font-display mx-auto mt-4 max-w-3xl text-4xl font-medium leading-[1.15] tracking-tight text-foreground sm:text-5xl"
           >
             The Foundation Process
