@@ -8,6 +8,7 @@ import { Bridge } from "@/components/landing/Bridge";
 import { Process } from "@/components/landing/Process";
 import { ServicesCarousel } from "@/components/landing/ServicesCarousel";
 import { Comparison } from "@/components/landing/Comparison";
+import { Testimonials } from "@/components/landing/Testimonials";
 import { Founder } from "@/components/landing/Founder";
 import { Faq } from "@/components/landing/Faq";
 import { FinalCta } from "@/components/landing/FinalCta";
@@ -47,6 +48,7 @@ function Index() {
         <Process />
         <ServicesCarousel />
         <Comparison />
+        <Testimonials />
         <Founder />
         <Faq />
         <FinalCta />
