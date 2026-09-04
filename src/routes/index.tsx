@@ -47,11 +47,12 @@ function Index() {
         <WhoFor />
         <WhyUs />
         <Bridge />
-        <Process />
-        <ServicesCarousel />
-        <CaseStudies />
-        <Comparison />
-        <Testimonials />
+          <Process />
+          <ServicesCarousel />
+          <CaseStudies />
+          <Pricing />
+          <Comparison />
+          <Testimonials />
         <Founder />
         <Faq />
         <FinalCta />
