@@ -5,7 +5,6 @@ import { Reveal } from "./Reveal";
 
 export function Process() {
   const [open, setOpen] = useState(0);
-  const [inView, setInView] = useState(0);
 
   return (
     <section
@@ -50,10 +49,7 @@ export function Process() {
               index={i}
               open={open === i}
               onToggle={() => setOpen(open === i ? -1 : i)}
-              onCenter={() => {
-                setInView(i);
-                setOpen(i);
-              }}
+              onCenter={() => setOpen(i)}
             />
           ))}
         </div>
