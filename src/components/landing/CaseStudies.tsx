@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type CaseStudy = {
   id: string;
@@ -12,22 +12,31 @@ const CASES: CaseStudy[] = [
     id: "axis-furniture",
     title: "Axis Furniture",
     category: "E-Commerce / Visual Identity",
-    gradient:
-      "bg-linear-to-br from-[#0A1628] via-royal-blue/70 to-sky-cyan/50",
+    gradient: "bg-linear-to-br from-[#0A1628] via-royal-blue/70 to-sky-cyan/50",
   },
   {
     id: "kaysaan",
     title: "Kaysaan",
     category: "Tech / Brand Strategy",
-    gradient:
-      "bg-linear-to-br from-[#1A0F2E] via-violet-brand/80 to-royal-blue/60",
+    gradient: "bg-linear-to-br from-[#1A0F2E] via-violet-brand/80 to-royal-blue/60",
   },
   {
     id: "aboron",
     title: "Aboron",
     category: "Retail / Brand System",
-    gradient:
-      "bg-linear-to-br from-[#2A1F0B] via-[#C9A84C]/60 to-violet-brand/70",
+    gradient: "bg-linear-to-br from-[#2A1F0B] via-[#C9A84C]/60 to-violet-brand/70",
+  },
+  {
+    id: "pizzaburg-treats",
+    title: "Pizzaburg Treats",
+    category: "F&B / Brand Identity",
+    gradient: "bg-linear-to-br from-[#2E0F1A] via-violet-brand/70 to-[#C9A84C]/50",
+  },
+  {
+    id: "elite-event-house",
+    title: "Elite Event House",
+    category: "Events / Brand Experience",
+    gradient: "bg-linear-to-br from-[#0B1F2A] via-sky-cyan/60 to-royal-blue/70",
   },
 ];
 
@@ -36,9 +45,51 @@ const contentPadding = "max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem))";
 export function CaseStudies() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const isHovered = useRef(false);
   const startX = useRef(0);
   const startScroll = useRef(0);
   const dragged = useRef(false);
+  const autoPausedUntil = useRef(0);
+
+  // Start with cards centered
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const center = () => {
+      track.scrollLeft = (track.scrollWidth - track.clientWidth) / 2;
+    };
+    center();
+    window.addEventListener("resize", center);
+    return () => window.removeEventListener("resize", center);
+  }, []);
+
+  // Smooth auto-scroll
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let raf = 0;
+    let last = performance.now();
+    const SPEED = 40; // px per second
+
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 50);
+      last = now;
+      const paused =
+        isDragging || isHovered.current || now < autoPausedUntil.current;
+      if (!paused) {
+        track.scrollLeft += (SPEED * dt) / 1000;
+        // wrap around seamlessly
+        if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 1) {
+          track.scrollLeft = 0;
+        }
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [isDragging]);
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     const track = trackRef.current;
@@ -60,6 +111,8 @@ export function CaseStudies() {
 
   const onPointerUp = () => {
     setIsDragging(false);
+    // resume auto-scroll shortly after interaction ends
+    autoPausedUntil.current = performance.now() + 1600;
   };
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -92,12 +145,18 @@ export function CaseStudies() {
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
-        onPointerLeave={onPointerUp}
+        onPointerLeave={() => {
+          onPointerUp();
+          isHovered.current = false;
+        }}
+        onPointerEnter={() => {
+          isHovered.current = true;
+        }}
         className={`scrollbar-hide flex w-full cursor-grab touch-pan-x snap-x snap-mandatory gap-6 overflow-x-auto py-2 ${
           isDragging ? "cursor-grabbing" : ""
         }`}
         style={{
-          scrollSnapType: isDragging ? "none" : "x mandatory",
+          scrollSnapType: isDragging ? "none" : "x proximity",
           scrollPaddingLeft: contentPadding,
           scrollPaddingRight: contentPadding,
           paddingLeft: contentPadding,

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import type { ProcessStage as Stage } from "@/lib/process-data";
 import { ProcessVisual } from "./ProcessVisual";
@@ -8,14 +9,35 @@ export function ProcessStage({
   index,
   open,
   onToggle,
+  onCenter,
 }: {
   stage: Stage;
   index: number;
   open: boolean;
   onToggle: () => void;
+  onCenter: () => void;
 }) {
   const flip = index % 2 === 1;
   const panelId = `stage-panel-${stage.num}`;
+  const rowRef = useRef<HTMLDivElement>(null);
+  const onCenterRef = useRef(onCenter);
+  onCenterRef.current = onCenter;
+
+  // Highlight (open) this stage when it scrolls into the center band of the viewport
+  useEffect(() => {
+    const el = rowRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) onCenterRef.current();
+        }
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const text = (
     <div className={flip ? "lg:pl-16" : "lg:pr-16 lg:text-right"}>
@@ -93,7 +115,10 @@ export function ProcessStage({
 
   return (
     <Reveal className="relative">
-      <div className="relative grid gap-8 pb-20 pl-14 lg:grid-cols-2 lg:items-center lg:gap-0 lg:pl-0">
+      <div
+        ref={rowRef}
+        className="relative grid gap-8 pb-20 pl-14 lg:grid-cols-2 lg:items-center lg:gap-0 lg:pl-0"
+      >
         {/* node */}
         <div className="absolute left-0 top-1 lg:left-1/2 lg:-translate-x-1/2">
           <div
