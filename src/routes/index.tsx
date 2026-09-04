@@ -8,6 +8,7 @@ import { Bridge } from "@/components/landing/Bridge";
 import { Process } from "@/components/landing/Process";
 import { ServicesCarousel } from "@/components/landing/ServicesCarousel";
 import { CaseStudies } from "@/components/landing/CaseStudies";
+import { Pricing } from "@/components/landing/Pricing";
 import { Comparison } from "@/components/landing/Comparison";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { Founder } from "@/components/landing/Founder";
