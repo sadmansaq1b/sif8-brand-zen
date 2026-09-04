@@ -115,7 +115,10 @@ export function ProcessStage({
 
   return (
     <Reveal className="relative">
-      <div className="relative grid gap-8 pb-20 pl-14 lg:grid-cols-2 lg:items-center lg:gap-0 lg:pl-0">
+      <div
+        ref={rowRef}
+        className="relative grid gap-8 pb-20 pl-14 lg:grid-cols-2 lg:items-center lg:gap-0 lg:pl-0"
+      >
         {/* node */}
         <div className="absolute left-0 top-1 lg:left-1/2 lg:-translate-x-1/2">
           <div
