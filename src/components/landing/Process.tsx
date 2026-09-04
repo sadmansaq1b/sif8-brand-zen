@@ -50,6 +50,10 @@ export function Process() {
               index={i}
               open={open === i}
               onToggle={() => setOpen(open === i ? -1 : i)}
+              onCenter={() => {
+                setInView(i);
+                setOpen(i);
+              }}
             />
           ))}
         </div>
