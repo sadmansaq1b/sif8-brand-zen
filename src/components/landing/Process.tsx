@@ -5,6 +5,7 @@ import { Reveal } from "./Reveal";
 
 export function Process() {
   const [open, setOpen] = useState(0);
+  const [inView, setInView] = useState(0);
 
   return (
     <section
