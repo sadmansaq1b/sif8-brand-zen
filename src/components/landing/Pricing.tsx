@@ -200,7 +200,7 @@ const trustItems = [
 function PackageCard({ pkg, index }: { pkg: Package; index: number }) {
   const [expanded, setExpanded] = useState(false);
 
-  const summaryItems = pkg.groups[0].items.slice(0, 2);
+  const summaryItems = pkg.groups[0]?.items.slice(0, 2) ?? [];
 
   return (
     <Reveal delay={index * 100}>
