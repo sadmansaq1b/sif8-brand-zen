@@ -221,10 +221,10 @@ export function ServicesCarousel() {
                 }}
               >
                 <div
-                  className={`glass flex h-[330px] flex-col rounded-2xl p-6 transition-[opacity,box-shadow,border-color] duration-500 sm:h-[360px] ${
+                  className={`flex h-[330px] flex-col rounded-2xl border bg-white/[0.07] p-6 backdrop-blur-xl transition-[opacity,box-shadow,border-color,background-color] duration-500 sm:h-[360px] ${
                     active === i
-                      ? "border-sky-cyan/40 opacity-100 shadow-[0_0_60px_-10px_oklch(0.74_0.115_220/45%)]"
-                      : "opacity-55"
+                      ? "border-sky-cyan/50 bg-white/[0.1] opacity-100 shadow-[0_0_60px_-10px_oklch(0.74_0.115_220/45%)]"
+                      : "border-white/15 opacity-60"
                   }`}
                 >
                   <div className="mb-6 flex items-start justify-between">
